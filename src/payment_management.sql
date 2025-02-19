@@ -19,10 +19,11 @@ WHERE member_id = 11;
 
 -- 2. Calculate total revenue from membership fees for each month of the last year
 -- TODO: Write a query to calculate total revenue from membership fees for each month of the current year
-SELECT strftime('%Y-%m', payment_date) AS month, SUM(amount) AS total_revenue
+SELECT strftime('%Y-%m', payment_date) AS month, 
+       SUM(amount) AS total_revenue
 FROM payments
 WHERE payment_type = 'Monthly membership fee'
-AND payment_date LIKE '2024%' -- Select all payments made last year in 2024
+  AND payment_date LIKE '2024%' -- Select all payments made last year in 2024
 GROUP BY month
 ORDER BY month;
 

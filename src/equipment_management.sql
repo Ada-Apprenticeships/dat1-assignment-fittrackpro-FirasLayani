@@ -21,6 +21,7 @@ GROUP BY type;
 
 -- 3. Calculate average age of equipment by type (in days)
 -- TODO: Write a query to calculate average age of equipment by type (in days)
-SELECT type as equipment_type,  AVG(JULIANDAY('now') - JULIANDAY(purchase_date)) AS avg_age_days
+SELECT type AS equipment_type,  
+       AVG(JULIANDAY('now') - JULIANDAY(purchase_date)) AS avg_age_days
 FROM equipment
 GROUP BY type;

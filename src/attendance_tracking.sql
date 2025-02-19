@@ -18,7 +18,9 @@ FROM attendance;
 
 -- 2. Retrieve a member's attendance history
 -- TODO: Write a query to retrieve a member's attendance history
-SELECT DATE(check_in_time) AS visit_date, check_in_time, check_out_time
+SELECT DATE(check_in_time) AS visit_date, 
+       check_in_time, 
+       check_out_time
 FROM attendance
 WHERE member_id = 5;
 
@@ -43,7 +45,8 @@ LIMIT 1;
 
 -- 4. Calculate the average daily attendance for each location
 -- TODO: Write a query to calculate the average daily attendance for each location
-SELECT l.name, COUNT(a.attendance_id) * 1.0 / COUNT(DISTINCT DATE(a.check_in_time)) AS avg_daily_attendance -- For each location (1 or 2), divide the total attendance by number of distinct days when a member has checked in. Note that it does not take into account days with 0 attendance.
+SELECT l.name, 
+       COUNT(a.attendance_id) * 1.0 / COUNT(DISTINCT DATE(a.check_in_time)) AS avg_daily_attendance -- For each location (1 or 2), divide the total attendance by number of distinct days when a member has checked in. Note that it does not take into account days with 0 attendance.
 FROM attendance a
 JOIN locations l ON a.location_id = l.location_id
 GROUP BY l.name;

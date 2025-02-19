@@ -4,6 +4,8 @@
 .open fittrackpro.db
 .mode column
 
+PRAGMA foreign_keys = OFF;
+
 -- Remove existing tables to re-create them each time this script is run
 DROP TABLE IF EXISTS locations;
 DROP TABLE IF EXISTS members;

@@ -3,20 +3,34 @@
 .mode column
 
 -- Enable foreign key support
+PRAGMA foreign_keys = ON;
 
 -- User Management Queries
 
 -- 1. Retrieve all members
 -- TODO: Write a query to retrieve all members
+SELECT member_id, first_name, last_name, email, join_date
+FROM members;
 
 -- 2. Update a member's contact information
 -- TODO: Write a query to update a member's contact information
+UPDATE members
+SET phone_number = '555-9876', email = 'emily.jones.updated@email.com'
+WHERE member_id = 5;
+
+-- Test if email and phone number have been updated for the member whose member_id = 5
+SELECT *
+FROM members
+WHERE member_id = 5;
 
 -- 3. Count total number of members
 -- TODO: Write a query to count the total number of members
+SELECT COUNT(member_id) AS total_members
+FROM members;
 
 -- 4. Find member with the most class registrations
 -- TODO: Write a query to find the member with the most class registrations
+-- SELECT member_id, first_name, last_name, registration_count
 
 -- 5. Find member with the least class registrations
 -- TODO: Write a query to find the member with the least class registrations
